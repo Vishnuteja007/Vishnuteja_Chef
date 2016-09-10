@@ -1,0 +1,9 @@
+title       "Database calls per second by Function"
+area        :none
+vtitle      "calls / sec"
+description "Overall counts of database calls broken out by function"
+
+field :count,
+      :data => 'stats.timers.<%= @app_name %>.upstreamRequests.rdbms.<%= @app_name %>_db.*.count',
+      :scale_to_seconds => 1,
+      :alias_by_node => 6 # database function
